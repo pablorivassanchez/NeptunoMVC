@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Neptuno.Data
+namespace Neptuno.Data.EFEntities
 {
-    public partial class LineaPedido
+    public partial class LineaPedido : BaseEntity<int>
     {
         public int IdPedido { get; set; }
         public int IdProducto { get; set; }

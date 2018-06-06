@@ -1,4 +1,5 @@
 ﻿using Neptuno.Data;
+using Neptuno.Data.EFEntities;
 using Neptuno.Data.Repositories;
 
 namespace Neptuno.ServiceLayer

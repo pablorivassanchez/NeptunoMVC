@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Neptuno.Data.EFEntities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,9 +11,9 @@ namespace Neptuno.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Producto> entity)
         {
-            entity.HasKey(e => e.IdProducto);
+            entity.HasKey(e => e.Id);
 
-            entity.Property(e => e.IdProducto).ValueGeneratedNever();
+            entity.Property(e => e.Id).HasColumnName("IdProducto").ValueGeneratedNever();
 
             entity.Property(e => e.CantidadPorUnidad).HasMaxLength(20);
 
@@ -31,6 +32,8 @@ namespace Neptuno.Data.Configurations
                 .WithMany(p => p.Producto)
                 .HasForeignKey(d => d.IdProveedor)
                 .HasConstraintName("FK_Producto_Proveedor");
+
+            entity.Property(e => e.Activo).HasDefaultValue(1);
         }
     }
 }

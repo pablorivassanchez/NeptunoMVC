@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Neptuno.Data.EFEntities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,9 +11,9 @@ namespace Neptuno.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Proveedor> entity)
         {
-            entity.HasKey(e => e.IdProveedor);
+            entity.HasKey(e => e.Id);
 
-            entity.Property(e => e.IdProveedor).ValueGeneratedNever();
+            entity.Property(e => e.Id).HasColumnName("IdProveedor").ValueGeneratedNever();
 
             entity.Property(e => e.CargoContacto).HasMaxLength(30);
 
@@ -35,6 +36,8 @@ namespace Neptuno.Data.Configurations
             entity.Property(e => e.Region).HasMaxLength(15);
 
             entity.Property(e => e.Telefono).HasMaxLength(24);
+
+            entity.Property(e => e.Activo).HasDefaultValue(1);
         }
     }
 }

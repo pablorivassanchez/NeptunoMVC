@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Neptuno.Data
+namespace Neptuno.Data.EFEntities
 {
-    public partial class Cliente
+    public partial class Cliente : BaseEntity<string>
     {
         public Cliente()
         {
             Pedido = new HashSet<Pedido>();
         }
 
-        public string IdCliente { get; set; }
         public string NombreCompania { get; set; }
         public string NombreContacto { get; set; }
         public string CargoContacto { get; set; }

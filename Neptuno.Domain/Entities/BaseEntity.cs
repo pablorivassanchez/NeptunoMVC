@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Neptuno.Data.EFEntities
+namespace Neptuno.Domain.Entities
 {
     public class BaseEntity<T>
     {

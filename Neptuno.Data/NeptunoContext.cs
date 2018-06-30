@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Neptuno.Data.Configurations;
-using Neptuno.Data.EFEntities;
+using Neptuno.Domain.Entities;
 
 namespace Neptuno.Data
 {

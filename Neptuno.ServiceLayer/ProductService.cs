@@ -1,6 +1,6 @@
 ﻿using Neptuno.Data;
-using Neptuno.Data.EFEntities;
 using Neptuno.Data.Repositories;
+using Neptuno.Domain.Entities;
 
 namespace Neptuno.ServiceLayer
 {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Neptuno.Data.EFEntities
+namespace Neptuno.Domain.Entities
 {
     public partial class Categoria : BaseEntity<int>
     {

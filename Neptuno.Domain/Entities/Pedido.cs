@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace Neptuno.Domain.Entities
 {
-    public partial class Pedido : BaseEntity<int>
+    public class Pedido : BaseEntity<int>
     {
-        public Pedido()
+        public Pedido() : base()
         {
-            LineaPedido = new HashSet<LineaPedido>();
+            LineasPedido = new HashSet<LineaPedido>();
         }
 
         public string IdCliente { get; set; }
@@ -24,9 +24,9 @@ namespace Neptuno.Domain.Entities
         public string CodPostalDestinatario { get; set; }
         public string PaisDestinatario { get; set; }
 
-        public CompaniaEnvio FormaEnvioNavigation { get; set; }
-        public Cliente IdClienteNavigation { get; set; }
-        public Empleado IdEmpleadoNavigation { get; set; }
-        public ICollection<LineaPedido> LineaPedido { get; set; }
+        public CompaniaEnvio CompaniaEnvioEnt { get; set; }
+        public Cliente ClienteEnt { get; set; }
+        public Empleado EmpleadoEnt { get; set; }
+        public ICollection<LineaPedido> LineasPedido { get; set; }
     }
 }

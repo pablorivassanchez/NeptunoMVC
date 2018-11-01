@@ -20,13 +20,13 @@ namespace Neptuno.Data.Configurations
 
             entity.Property(e => e.PrecioUnidad).HasColumnType("money");
 
-            entity.HasOne(d => d.IdCategoriaNavigation)
-                .WithMany(p => p.Producto)
+            entity.HasOne(d => d.CategoriaEnt)
+                .WithMany(p => p.Productos)
                 .HasForeignKey(d => d.IdCategoria)
                 .HasConstraintName("FK_Producto_Categoria");
 
-            entity.HasOne(d => d.IdProveedorNavigation)
-                .WithMany(p => p.Producto)
+            entity.HasOne(d => d.ProveedorEnt)
+                .WithMany(p => p.Productos)
                 .HasForeignKey(d => d.IdProveedor)
                 .HasConstraintName("FK_Producto_Proveedor");
 

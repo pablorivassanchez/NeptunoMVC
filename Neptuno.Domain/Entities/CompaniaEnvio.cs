@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace Neptuno.Domain.Entities
 {
-    public partial class CompaniaEnvio : BaseEntity<int>
+    public class CompaniaEnvio : BaseEntity<int>
     {
-        public CompaniaEnvio()
+        public CompaniaEnvio() : base()
         {
             Pedidos = new HashSet<Pedido>();
         }

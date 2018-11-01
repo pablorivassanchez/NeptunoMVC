@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace Neptuno.Domain.Entities
 {
-    public partial class Cliente : BaseEntity<string>
+    public class Cliente : BaseEntity<string>
     {
-        public Cliente()
+        public Cliente() : base()
         {
-            Pedido = new HashSet<Pedido>();
+            Pedidos = new HashSet<Pedido>();
         }
 
         public string NombreCompania { get; set; }
@@ -21,6 +21,6 @@ namespace Neptuno.Domain.Entities
         public string Telefono { get; set; }
         public string Fax { get; set; }
 
-        public ICollection<Pedido> Pedido { get; set; }
+        public ICollection<Pedido> Pedidos { get; set; }
     }
 }

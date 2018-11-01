@@ -16,7 +16,7 @@ namespace Neptuno.Data.Configurations
                 .IsRequired()
                 .HasMaxLength(15);
 
-            entity.Property(e => e.Activo).HasDefaultValue(1);
+            entity.Property(e => e.Activo).HasDefaultValue(true);
         }
     }
 }

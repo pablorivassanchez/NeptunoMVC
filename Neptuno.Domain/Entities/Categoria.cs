@@ -2,16 +2,16 @@
 
 namespace Neptuno.Domain.Entities
 {
-    public partial class Categoria : BaseEntity<int>
+    public class Categoria : BaseEntity<int>
     {
-        public Categoria()
+        public Categoria() : base()
         {
-            Producto = new HashSet<Producto>();
+            Productos = new HashSet<Producto>();
         }
 
         public string NombreCategoria { get; set; }
         public string Descripcion { get; set; }
 
-        public ICollection<Producto> Producto { get; set; }
+        public ICollection<Producto> Productos { get; set; }
     }
 }

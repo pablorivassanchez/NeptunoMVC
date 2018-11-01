@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace Neptuno.Domain.Entities
 {
-    public partial class Proveedor : BaseEntity<int>
+    public class Proveedor : BaseEntity<int>
     {
-        public Proveedor()
+        public Proveedor() : base()
         {
-            Producto = new HashSet<Producto>();
+            Productos = new HashSet<Producto>();
         }
 
         public string NombreCompania { get; set; }
@@ -22,6 +22,6 @@ namespace Neptuno.Domain.Entities
         public string Fax { get; set; }
         public string PaginaPrincipal { get; set; }
 
-        public ICollection<Producto> Producto { get; set; }
+        public ICollection<Producto> Productos { get; set; }
     }
 }

@@ -14,14 +14,14 @@ namespace Neptuno.Data.Configurations
 
             entity.Property(e => e.PrecioUnidad).HasColumnType("money");
 
-            entity.HasOne(d => d.IdPedidoNavigation)
-                .WithMany(p => p.LineaPedido)
+            entity.HasOne(d => d.PedidoEnt)
+                .WithMany(p => p.LineasPedido)
                 .HasForeignKey(d => d.IdPedido)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_LineaPedido_Pedido");
 
-            entity.HasOne(d => d.IdProductoNavigation)
-                .WithMany(p => p.LineaPedido)
+            entity.HasOne(d => d.ProductoEnt)
+                .WithMany(p => p.LineasPedido)
                 .HasForeignKey(d => d.IdProducto)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_LineaPedido_Producto");

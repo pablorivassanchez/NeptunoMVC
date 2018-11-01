@@ -6,6 +6,10 @@ namespace Neptuno.Domain.Entities
 {
     public class BaseEntity<T>
     {
+        public BaseEntity()
+        {
+            Activo = true;
+        }
         public T Id { get; set; }
         public bool Activo { get; set; }
     }

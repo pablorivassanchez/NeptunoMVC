@@ -38,18 +38,18 @@ namespace Neptuno.Data.Configurations
 
             entity.Property(e => e.Activo).HasDefaultValue(1);
 
-            entity.HasOne(d => d.FormaEnvioNavigation)
+            entity.HasOne(d => d.CompaniaEnvioEnt)
                 .WithMany(p => p.Pedidos)
                 .HasForeignKey(d => d.FormaEnvio)
                 .HasConstraintName("FK_Pedido_CompaniaEnvio");
 
-            entity.HasOne(d => d.IdClienteNavigation)
-                .WithMany(p => p.Pedido)
+            entity.HasOne(d => d.ClienteEnt)
+                .WithMany(p => p.Pedidos)
                 .HasForeignKey(d => d.IdCliente)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Pedido_Cliente");
 
-            entity.HasOne(d => d.IdEmpleadoNavigation)
+            entity.HasOne(d => d.EmpleadoEnt)
                 .WithMany(p => p.Pedidos)
                 .HasForeignKey(d => d.IdEmpleado)
                 .HasConstraintName("FK_Pedido_Empleado");

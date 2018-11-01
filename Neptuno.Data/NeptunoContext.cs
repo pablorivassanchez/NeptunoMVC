@@ -1,6 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using Neptuno.Data.Configurations;
 using Neptuno.Domain.Entities;
+using Serilog;
+using Serilog.Core;
+using Serilog.Events;
+using Serilog.Extensions.Logging;
 
 namespace Neptuno.Data
 {
@@ -8,11 +13,17 @@ namespace Neptuno.Data
     {
         public NeptunoContext()
         {
-        }
 
-        public NeptunoContext(DbContextOptions<NeptunoContext> options)
+            Log.Logger = new LoggerConfiguration()
+                        .WriteTo.File(@"myapp\log.txt")
+                        .CreateLogger();
+            _loggerFactory = new LoggerFactory(new[] { new SerilogLoggerProvider(Log.Logger) }); //(category, level) => category == DbLoggerCategory.Database.Command.Name && level == LogLevel.Information,true)
+        }
+        private readonly ILoggerFactory _loggerFactory;
+        public NeptunoContext(DbContextOptions<NeptunoContext> options, ILoggerFactory loggerFactory)
             : base(options)
         {
+            _loggerFactory = loggerFactory;
         }
 
         public virtual DbSet<Categoria> Categoria { get; set; }
@@ -33,7 +44,9 @@ namespace Neptuno.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(@"Server=(LocalDb)\MSSQLLocalDB;Database=Neptuno;Trusted_Connection=True;MultipleActiveResultSets=true");
+                optionsBuilder
+                    .UseLoggerFactory(_loggerFactory)
+                    .UseSqlServer(@"Server=(LocalDb)\MSSQLLocalDB;Database=Neptuno;Trusted_Connection=True;MultipleActiveResultSets=true");
             }
         }
         

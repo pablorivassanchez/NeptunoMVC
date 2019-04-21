@@ -146,10 +146,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Neptuno.Consola\Neptuno.Consola.csproj">
-      <Project>{ec48c0a1-13cc-4f6a-a62a-b70dbe3e454e}</Project>
-      <Name>Neptuno.Consola</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Neptuno.Data\Neptuno.Data.csproj">
       <Project>{6d749e7b-fdd1-4e18-b744-4a3e9ec8e95d}</Project>
       <Name>Neptuno.Data</Name>
